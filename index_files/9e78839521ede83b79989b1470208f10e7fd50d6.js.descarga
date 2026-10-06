@@ -1,0 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  //Funcionalidad focus para el input de busqueda Zendesk
+  const parentBox = document.querySelector(".header__input");
+  const inputField = parentBox.querySelector("input[type='search']");
+
+  parentBox.addEventListener("click", function () {
+    inputField.focus();
+  });
+});

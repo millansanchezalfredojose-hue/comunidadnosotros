@@ -1,0 +1,158 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const btnOpen = document.getElementById("btnButtonsNav");
+  const btnClose = document.getElementById("btnCloseNav");
+
+  const navbar__links = document.querySelector(".navbar__links");
+  const buttons = document.querySelectorAll(".buttonMain");
+  const ulBenefits = document.querySelector(".secMain__questionsList.benefits");
+  const ulSolutions = document.querySelector(
+    ".secMain__questionsList.solutions"
+  );
+
+  //Funcion para alternar de botones en mobile
+  btnOpen.addEventListener("click", function () {
+    btnOpen.classList.add("hidden"); // Oculta el botón de menú
+    btnClose.classList.remove("hidden"); // Muestra el botón de cerrar
+    navbar__links.classList.add("showBtn");
+  });
+
+  btnClose.addEventListener("click", function () {
+    btnClose.classList.add("hidden"); // Oculta el botón de cerrar
+    btnOpen.classList.remove("hidden"); // Muestra el botón de menú
+    navbar__links.classList.remove("showBtn");
+  });
+
+  const navbar = document.querySelector(".navbar");
+  let lastScrollY = window.scrollY;
+
+ window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > 50) { // Solo aplicar efecto si el usuario ha bajado más de 50px
+    if (currentScrollY > lastScrollY) {
+      // Scroll hacia abajo, ocultar la navbar
+      navbar.classList.add("navbar--hidden");
+    } else {
+      // Scroll hacia arriba, mostrar la navbar
+      navbar.classList.remove("navbar--hidden");
+    }
+  } else {
+    // Asegurar que la navbar esté visible cuando el usuario está en la parte superior
+    navbar.classList.remove("navbar--hidden");
+  }
+
+  lastScrollY = currentScrollY; // Actualizar la última posición de scroll
+});
+
+  let isAnimating = false; // Controla si hay una animación en curso
+  let isFirstClick = true; // Bandera para detectar si es la primera vez que se hace clic
+
+  function showHideOptions(action) {
+    if (action === "benefits") {
+      ulSolutions.classList.remove("showQuestions"); // Oculta soluciones
+      setTimeout(() => {
+        ulBenefits.classList.add("showQuestions"); // Muestra beneficios
+      }, 200); // Espera que termine la animación de ocultar
+    } else if (action === "problems") {
+      ulBenefits.classList.remove("showQuestions"); // Oculta beneficios
+      setTimeout(() => {
+        ulSolutions.classList.add("showQuestions"); // Muestra soluciones
+      }, 200); // Espera que termine la animación de ocultar
+    }
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (isAnimating) return; // Bloquear mientras hay animación
+      isAnimating = true; // Bloquear nuevas interacciones
+      const action = button.getAttribute("data-action");
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      if (isFirstClick) {
+        // La primera vez, muestra rápidamente sin esperar animación
+
+        showHideOptions(action);
+        button.classList.add("active");
+        isFirstClick = false; // Cambiamos la bandera después de la primera vez
+        isAnimating = false; // Permitir interacciones inmediatas
+        return;
+      }
+
+      // Si ya hay un contenido visible
+      if (
+        ulBenefits.classList.contains("showQuestions") ||
+        ulSolutions.classList.contains("showQuestions")
+      ) {
+        // Oculta primero el contenido actual
+        ulBenefits.classList.remove("showQuestions");
+        ulSolutions.classList.remove("showQuestions");
+
+        // Una vez oculto, muestra el nuevo contenido
+        setTimeout(() => {
+          showHideOptions(action);
+          buttons.forEach((btn) => btn.classList.remove("active")); // Desactivar todos los botones
+          button.classList.add("active"); // Activar el botón clicado
+          isAnimating = false; // Permitir nuevas interacciones
+        }, 300); // Sincronizado con la duración de la animación de ocultar
+      } else {
+        // Si no hay contenido visible, muestra directamente
+        showHideOptions(action);
+        buttons.forEach((btn) => btn.classList.remove("active")); // Desactivar todos los botones
+        button.classList.add("active"); // Activar el botón clicado
+        isAnimating = false; // Permitir nuevas interacciones
+      }
+    });
+  });
+
+  // funcion de el footer mobile
+
+  // Seleccionar todos los elementos con la clase 'footer__main_option'
+  const footerOptions = document.querySelectorAll(".footer__main_option");
+
+  footerOptions.forEach((option) => {
+    option.addEventListener("click", function () {
+      this.classList.toggle("activeFooterMobile");
+    });
+  });
+
+  // Funcionalidad de las categorías del interno
+  const sections = document.querySelectorAll(".categoryIntern"); // Almacenar los elementos en una constante
+
+  sections.forEach((article) => {
+    article.addEventListener("click", () => {
+      // Primero eliminar la clase 'expanded' de todos los artículos
+      sections.forEach((otherArticle) => {
+        if (otherArticle !== article) {
+          otherArticle.classList.remove("expanded");
+        }
+      });
+
+      // Luego, alternar la clase 'expanded' en el artículo clickeado
+      article.classList.toggle("expanded");
+    });
+  });
+
+  const categoriasPermitidas = [
+    "203206527",
+    "360005644731",
+    "360006081791",
+    "12573534785037",
+    "27300486611341",
+    "360005263031",
+    "14597767475085",
+    "14189976387725",
+    "4407347178765",
+    "115000186132",
+    "25921166814989",
+    "115000186112",
+    "18331606243085",
+  ];
+
+  document.querySelectorAll(".categoryIntern").forEach((article) => {
+    const categoryId = article.getAttribute("data-category");
+    if (!categoriasPermitidas.includes(categoryId)) {
+      article.style.display = "none"; // Oculta las categorías no permitidas
+    }
+  });
+  
+
+});

@@ -1,0 +1,175 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const inputElement = document.getElementById("searchInput");
+  const inputResults = document.getElementById("inputResults");
+  const resultsInput = document.getElementById("resultsInput");
+  const loader = document.getElementById("loader");
+  const searchIcon = document.getElementById("searchIcon");
+
+  const categories = [
+    "33920520310541", // Primera categoría
+    "33920490969101", // Segunda categoría
+  ];
+
+  // Función para manejar la llamada a la API
+  const fetchArticlesFromAPI = async () => {
+    try {
+      const apiUrlBase =
+        "https://nequi.zendesk.com/api/v2/help_center/categories/";
+
+      const requests = categories.map(async (categoryId) => {
+        let allArticles = [];
+        let nextPage = `${apiUrlBase}${categoryId}/articles`;
+
+        do {
+          const response = await fetch(nextPage);
+          const data = await response.json();
+
+          // console.log(
+          //   `Artículos de la categoría ${categoryId}:`,
+          //   data.articles
+          // );
+
+          allArticles.push(
+            ...data.articles.map((article) => ({
+              title: article.title,
+              url: article.html_url,
+            }))
+          );
+
+          nextPage = data.next_page;
+        } while (nextPage);
+
+        return allArticles;
+      });
+
+      // Ejecutar todas las peticiones en paralelo y esperar los resultados
+      const results = await Promise.all(requests);
+      const allArticles = results.flat();
+
+      // Almacenar todos los artículos en localStorage
+      localStorage.setItem("allArticles", JSON.stringify(allArticles));
+
+      // console.log("Artículos almacenados en localStorage:", allArticles);
+
+      return allArticles;
+    } catch (error) {
+      console.error("Error al obtener los artículos:", error);
+      showLoader(false);
+      return [];
+    }
+  };
+
+  // Función para normalizar texto (eliminar tildes y caracteres especiales)
+  const normalizeText = (text) => {
+    return text
+      .normalize("NFD") // Descompone los caracteres en sus componentes
+      .replace(/[\u0300-\u036f]/g, "") // Elimina todos los diacríticos
+      .toLowerCase() // Convierte a minúsculas
+      .trim(); // Elimina espacios en blanco al inicio y final
+  };
+  //función apra imprimir resultados
+  const displayResults = (articles, searchTerm = "") => {
+    showLoader(false);
+
+    // Normalizar el término de búsqueda
+    const normalizedSearchTerm = normalizeText(searchTerm);
+
+    // Filtrar los artículos comparando texto normalizado
+    const filteredArticles = articles.filter((article) => {
+      const normalizedTitle = normalizeText(article.title);
+      return normalizedTitle.includes(normalizedSearchTerm);
+    });
+
+    // Limpiar y actualizar el contenido de resultsInput
+    if (filteredArticles.length === 0) {
+      resultsInput.innerHTML = "<li>No se encontraron resultados.</li>";
+    } else {
+      // Mostrar los resultados con el texto original (con tildes)
+      resultsInput.innerHTML = filteredArticles
+        .map((article) => {
+          return `<li><a href="${article.url}" target="_blank">${article.title}</a></li>`;
+        })
+        .join("");
+    }
+
+    // Mostrar los resultados y ocultar el loader
+    resultsInput.classList.remove("hidden");
+  };
+
+  // Mostrar/ocultar el loader
+  const showLoader = (isLoading) => {
+    if (isLoading) {
+      loader.style.display = "block";
+      resultsInput.classList.add("hidden"); // Ocultar los resultados mientras cargamos
+    } else {
+      loader.style.display = "none";
+    }
+  };
+
+  // Detectar cuando el usuario deja de escribir
+  inputElement.addEventListener("input", () => {
+    const searchTerm = inputElement.value.trim().toLowerCase();
+
+    // Si el input está vacío, ocultar los resultados y quitar la clase
+    if (searchTerm === "") {
+      inputResults.classList.remove("inputResultsShow");
+    } else {
+      inputResults.classList.add("inputResultsShow");
+    }
+
+    // Si no hay artículos en localStorage, mostrar el loader y buscar en la API
+    let allArticles = JSON.parse(localStorage.getItem("allArticles")) || [];
+    if (allArticles.length === 0) {
+      showLoader(true); // Mostrar el loader mientras se hace la consulta
+      fetchArticlesFromAPI().then((articles) => {
+        // Una vez que la API responde, filtrar y mostrar los resultados
+        displayResults(articles, searchTerm);
+      });
+    } else {
+      // Filtrar los artículos de acuerdo al término de búsqueda si ya existen en localStorage
+      displayResults(allArticles, searchTerm);
+    }
+  });
+
+  // Cuando el usuario presiona enter o hace clic en el ícono
+  inputElement.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      showLoader(true); // Ocultar el ul y mostrar el loader
+      const searchTerm = inputElement.value.trim();
+      // Forzar nueva consulta a la API, ignorando el localStorage:
+      fetchArticlesFromAPI().then((articles) => {
+        displayResults(articles, searchTerm);
+      });
+    }
+  });
+  searchIcon.addEventListener("click", async () => {
+    const searchTerm = inputElement.value.trim();
+
+    // Verificar si el input está vacío
+    if (searchTerm === "") {
+      return; // No hacer nada si el input está vacío
+    }
+
+    showLoader(true); // Mostrar el loader mientras se hace la consulta
+
+    // Recuperar artículos desde localStorage
+    let allArticles = JSON.parse(localStorage.getItem("allArticles")) || [];
+
+    // Si no hay artículos en localStorage, hacer la consulta a la API
+    if (allArticles.length === 0) {
+      allArticles = await fetchArticlesFromAPI(); // Hacer la consulta a la API
+    }
+
+    // Filtrar los artículos basados en el término de búsqueda
+    displayResults(allArticles, searchTerm); // Mostrar los resultados filtrados
+  });
+
+  //Para limpiar el localStorage cuando el usuario va para otra sección del sitio y no conserve esta busquedas
+  window.addEventListener("beforeunload", () => {
+    // console.log(
+    //   "El usuario está saliendo de la página. Limpiando el localStorage..."
+    // );
+    localStorage.removeItem("allArticles"); // Vaciamos el objeto en localStorage
+  });
+});

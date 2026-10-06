@@ -1,0 +1,81 @@
+<svg width="26" height="26" viewBox="0 0 26 26" fill="none" version="1.1" id="svg59" xmlns="http://www.w3.org/2000/svg">
+  <defs id="defs59"/>
+  
+  <mask id="path-1-inside-1_607_6101" fill="white">
+    <rect x="3" y="4" width="20" height="13" rx="1" id="rect1"/>
+  </mask>
+  <rect x="3" y="4" width="20" height="13" rx="1" stroke="#200020" stroke-width="3" mask="url(#path-1-inside-1_607_6101)" id="rect2" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M20.3818 16.2677C19.8191 15.6932 19.8644 14.804 20.4831 14.2814C21.1017 13.7589 22.0594 13.801 22.6221 14.3755" stroke="#200020" id="path2" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M20.3818 4.92812C19.8191 5.50258 19.8644 6.39184 20.4831 6.91435C21.1017 7.43687 22.0594 7.39476 22.6221 6.82031" stroke="#200020" id="path3" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M4.10597 14.1042C4.72929 13.77 5.52632 13.9684 5.88619 14.5471C6.24606 15.1259 6.03249 15.866 5.40918 16.2002" stroke="#200020" id="path4" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M4.10597 7.09159C4.72929 7.42576 5.52632 7.22745 5.88619 6.64866C6.24606 6.06987 6.03249 5.32977 5.40918 4.99561" stroke="#200020" id="path5" style="stroke:#da0081;stroke-opacity:1"/>
+  <circle cx="13.5" cy="10.5" r="3" stroke="#200020" id="circle5" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M4 20L22 20" stroke="#200020" stroke-width="1.5" stroke-linecap="round" id="path6" style="stroke:#da0081;stroke-opacity:1"/>
+  <path d="M5 23L21 23" stroke="#200020" stroke-width="1.5" stroke-linecap="round" id="path7" style="stroke:#da0081;stroke-opacity:1"/>
+  <g opacity="0.01" id="g59">
+    <g opacity="0.2" id="g54">
+      <rect x="1" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect7"/>
+      <rect x="2" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect8"/>
+      <rect x="3" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect9"/>
+      <rect x="4" y="1" width="0.999999" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect10"/>
+      <rect x="5" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect11"/>
+      <rect x="6" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect12"/>
+      <rect x="7" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect13"/>
+      <rect x="8" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect14"/>
+      <rect x="9" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect15"/>
+      <rect x="10" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect16"/>
+      <rect x="11" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect17"/>
+      <rect x="12" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect18"/>
+      <rect x="13" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect19"/>
+      <rect x="14" y="1" width="0.999999" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect20"/>
+      <rect x="15" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect21"/>
+      <rect x="16" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect22"/>
+      <rect x="17" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect23"/>
+      <rect x="18" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect24"/>
+      <rect x="19" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect25"/>
+      <rect x="20" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect26"/>
+      <rect x="21" y="1" width="0.999998" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect27"/>
+      <rect x="22" y="1" width="0.999996" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect28"/>
+      <rect x="23" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect29"/>
+      <rect x="24" y="1" width="1" height="24.0001" stroke="#200020" stroke-width="0.09375" id="rect30"/>
+      <rect x="1" y="24.9995" width="1.00024" height="24" transform="rotate(-90 1 24.9995)" stroke="#200020" stroke-width="0.09375" id="rect31"/>
+      <rect x="1" y="24.0005" width="0.999999" height="24" transform="rotate(-90 1 24.0005)" stroke="#200020" stroke-width="0.09375" id="rect32"/>
+      <rect x="1" y="23.0005" width="0.999995" height="24" transform="rotate(-90 1 23.0005)" stroke="#200020" stroke-width="0.09375" id="rect33"/>
+      <rect x="1" y="22.0005" width="0.999997" height="24" transform="rotate(-90 1 22.0005)" stroke="#200020" stroke-width="0.09375" id="rect34"/>
+      <rect x="1" y="21" width="0.999995" height="24" transform="rotate(-90 1 21)" stroke="#200020" stroke-width="0.09375" id="rect35"/>
+      <rect x="1" y="20" width="0.999997" height="24" transform="rotate(-90 1 20)" stroke="#200020" stroke-width="0.09375" id="rect36"/>
+      <rect x="1" y="19" width="0.999997" height="24" transform="rotate(-90 1 19)" stroke="#200020" stroke-width="0.09375" id="rect37"/>
+      <rect x="1" y="18" width="0.999999" height="24" transform="rotate(-90 1 18)" stroke="#200020" stroke-width="0.09375" id="rect38"/>
+      <rect x="1" y="17" width="0.999995" height="24" transform="rotate(-90 1 17)" stroke="#200020" stroke-width="0.09375" id="rect39"/>
+      <rect x="1" y="16" width="1" height="24" transform="rotate(-90 1 16)" stroke="#200020" stroke-width="0.09375" id="rect40"/>
+      <rect x="1" y="15" width="1" height="24" transform="rotate(-90 1 15)" stroke="#200020" stroke-width="0.09375" id="rect41"/>
+      <rect x="1" y="14" width="0.999995" height="24" transform="rotate(-90 1 14)" stroke="#200020" stroke-width="0.09375" id="rect42"/>
+      <rect x="1" y="13" width="0.999999" height="24" transform="rotate(-90 1 13)" stroke="#200020" stroke-width="0.09375" id="rect43"/>
+      <rect x="1" y="12" width="1" height="24" transform="rotate(-90 1 12)" stroke="#200020" stroke-width="0.09375" id="rect44"/>
+      <rect x="1" y="11" width="0.999998" height="24" transform="rotate(-90 1 11)" stroke="#200020" stroke-width="0.09375" id="rect45"/>
+      <rect x="1" y="10" width="1" height="24" transform="rotate(-90 1 10)" stroke="#200020" stroke-width="0.09375" id="rect46"/>
+      <rect x="1" y="9" width="0.999997" height="24" transform="rotate(-90 1 9)" stroke="#200020" stroke-width="0.09375" id="rect47"/>
+      <rect x="1" y="8" width="1" height="24" transform="rotate(-90 1 8)" stroke="#200020" stroke-width="0.09375" id="rect48"/>
+      <rect x="1" y="7" width="0.999999" height="24" transform="rotate(-90 1 7)" stroke="#200020" stroke-width="0.09375" id="rect49"/>
+      <rect x="1" y="6" width="0.999999" height="24" transform="rotate(-90 1 6)" stroke="#200020" stroke-width="0.09375" id="rect50"/>
+      <rect x="1" y="5" width="0.999999" height="24" transform="rotate(-90 1 5)" stroke="#200020" stroke-width="0.09375" id="rect51"/>
+      <rect x="1" y="4" width="0.999999" height="24" transform="rotate(-90 1 4)" stroke="#200020" stroke-width="0.09375" id="rect52"/>
+      <rect x="1" y="3" width="0.999999" height="24" transform="rotate(-90 1 3)" stroke="#200020" stroke-width="0.09375" id="rect53"/>
+      <rect x="1" y="2" width="1" height="24" transform="rotate(-90 1 2)" stroke="#200020" stroke-width="0.09375" id="rect54"/>
+    </g>
+    <ellipse cx="13" cy="13" rx="4" ry="4" stroke="#200020" stroke-width="0.09375" id="ellipse54"/>
+    <path d="M1 1H25M1 1V25M1 1L25 25M25 1V25M25 1L1 25M25 25H1" stroke="#200020" stroke-width="0.09375" id="path54"/>
+    <g style="mix-blend-mode:multiply" id="g55">
+      <ellipse cx="13" cy="13" rx="9.99998" ry="9.99998" stroke="#DC410F" stroke-width="0.09375" id="ellipse55"/>
+    </g>
+    <g style="mix-blend-mode:multiply" id="g56">
+      <rect x="3" y="5" width="20" height="16" rx="1.3125" stroke="#DC410F" stroke-width="0.09375" id="rect55"/>
+    </g>
+    <g style="mix-blend-mode:multiply" id="g57">
+      <rect x="21" y="3" width="19.9999" height="16" rx="1.3125" transform="rotate(90 21 3)" stroke="#DC410F" stroke-width="0.09375" id="rect56"/>
+    </g>
+    <g style="mix-blend-mode:multiply" id="g58">
+      <rect x="22" y="4" width="18" height="18" rx="1.3125" transform="rotate(90 22 4)" stroke="#DC410F" stroke-width="0.09375" id="rect57"/>
+    </g>
+  </g>
+</svg>
